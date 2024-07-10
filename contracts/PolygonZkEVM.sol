@@ -609,11 +609,11 @@ contract PolygonZkEVM is
             lastForceBatchSequenced = currentLastForceBatchSequenced;
 
         // Pay collateral for every non-forced batch submitted
-        matic.safeTransferFrom(
-            msg.sender,
-            address(this),
-            batchFee * nonForcedBatchesSequenced
-        );
+        // matic.safeTransferFrom(
+        //     msg.sender,
+        //     address(this),
+        //     batchFee * nonForcedBatchesSequenced
+        // );
 
         // Consolidate pending state if possible
         _tryConsolidatePendingState();
@@ -819,11 +819,11 @@ contract PolygonZkEVM is
         }
 
         // Get MATIC reward
-        matic.safeTransfer(
-            msg.sender,
-            calculateRewardPerBatch() *
-                (finalNewBatch - currentLastVerifiedBatch)
-        );
+        // matic.safeTransfer(
+        //     msg.sender,
+        //     calculateRewardPerBatch() *
+        //         (finalNewBatch - currentLastVerifiedBatch)
+        // );
     }
 
     /**
