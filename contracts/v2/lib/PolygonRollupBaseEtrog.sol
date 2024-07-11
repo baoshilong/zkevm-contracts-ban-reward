@@ -522,21 +522,21 @@ abstract contract PolygonRollupBaseEtrog is
             nonForcedBatchesSequenced -= forcedBatchesSequenced;
 
             // Transfer pol for every forced batch submitted
-            pol.safeTransfer(
-                address(rollupManager),
-                calculatePolPerForceBatch() * (forcedBatchesSequenced)
-            );
+            // pol.safeTransfer(
+            //     address(rollupManager),
+            //     calculatePolPerForceBatch() * (forcedBatchesSequenced)
+            // );
 
             // Store new last force batch sequenced
             lastForceBatchSequenced = currentLastForceBatchSequenced;
         }
 
         // Pay collateral for every non-forced batch submitted
-        pol.safeTransferFrom(
-            msg.sender,
-            address(rollupManager),
-            rollupManager.getBatchFee() * nonForcedBatchesSequenced
-        );
+        // pol.safeTransferFrom(
+        //     msg.sender,
+        //     address(rollupManager),
+        //     rollupManager.getBatchFee() * nonForcedBatchesSequenced
+        // );
 
         uint64 currentBatchSequenced = rollupManager.onSequenceBatches(
             uint64(batchesNum),
